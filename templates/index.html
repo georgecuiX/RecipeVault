@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Recipe Chatbot</h1>
+
+    <h2>Find a Recipe:</h2>
+    <form action="/" method="post">
+        <label for="ingredients">Enter Ingredients (separated by one space, e.g., "tomato cheese"):</label>
+        <input type="text" name="ingredients" id="ingredients" required>
+        <button type="submit">Get Recipes</button>
+    </form>
+
+    <h2>Recipes:</h2>
+    <ul>
+    {% for recipe_name in recipes %}
+        <li>{{ recipe_name[0] }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Add a Recipe:</h2>
+    <form action="/add_recipe" method="post">
+        <label for="ingredients">Ingredients (separated by one space):</label>
+        <input type="text" name="ingredients" id="ingredients" required>
+        <label for="recipe_name">Recipe Name:</label>
+        <input type="text" name="recipe_name" id="recipe_name" required>
+        <button type="submit">Add Recipe</button>
+    </form>
+
+</body>
+</html>

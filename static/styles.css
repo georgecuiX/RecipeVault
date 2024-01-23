@@ -1,0 +1,8 @@
+/* Example CSS content */
+body {
+    font-family: Arial, sans-serif;
+}
+
+input[type="text"], button {
+    margin: 5px 0;
+}
