@@ -1,4 +1,8 @@
 /* Example CSS content */
+.small-font {
+    font-size: 0.8em; 
+}
+
 body {
     font-family: Arial, sans-serif;
 }

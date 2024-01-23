@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Recipes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>All Recipes</h1>
+    <ul>
+    {% for id, ingredients, recipe_name in recipes %}
+        <li>
+            {{ recipe_name }}
+            <div class="small-font">Ingredients: {{ ingredients }}</div>
+            <form action="{{ url_for('delete_recipe', recipe_id=id, origin='all_recipes') }}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
