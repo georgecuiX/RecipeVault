@@ -5,41 +5,38 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Recipe Generator</h1>
-    <a href="{{ url_for('all_recipes') }}">View All Recipes</a>
+    <div class="container">
+        <h1>Recipe Generator</h1>
+        <a href="{{ url_for('all_recipes') }}" class="view-all-recipes">View All Recipes</a>
 
-    <h2>Find a Recipe:</h2>
-    <form action="/" method="post">
-        <label for="ingredients">Enter Ingredients (separated by one space, e.g., "tomato cheese"):</label>
-        <input type="text" name="ingredients" id="ingredients" required>
-        <button type="submit">Get Recipes</button>
-        <p id="message">{{ message }}</p>
-    </form>
+        <h2>Find a Recipe:</h2>
+        <form action="/" method="post">
+            <label for="ingredients">Enter Ingredients (separated by one space, e.g., "egg rice"):</label>
+            <input type="text" name="ingredients" id="ingredients" required>
+            <button type="submit">Get Recipes</button>
+            <p id="message">{{ message }}</p>
+        </form>
 
-    <h2>Recipes:</h2>
-    <ul>
-    {% for id, recipe_name in recipes %}
-        <li>{{ recipe_name }} 
-            <form action="{{ url_for('delete_recipe', recipe_id=id, origin='index') }}" method="post">
-                <button type="submit">Delete</button>
-            </form>
-        </li>
-    {% endfor %}
-    </ul>
+        <h2>Recipes:</h2>
+        <ul>
+        {% for id, recipe_name in recipes %}
+            <li>
+                {{ recipe_name }}
+                <form action="{{ url_for('delete_recipe', recipe_id=id) }}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+        </ul>
 
-    <h2>Add a Recipe:</h2>
-    <form action="/add_recipe" method="post">
-        <label for="ingredients">Enter Ingredients (separated by one space, e.g., "tomato cheese"):</label>
-        <input type="text" name="ingredients" id="ingredients" required>
-        <label for="recipe_name">Recipe Name:</label>
-        <input type="text" name="recipe_name" id="recipe_name" required>
-        <button type="submit">Add Recipe</button>
-    </form>
-
-    <script>
-        setTimeout(function() {
-            document.getElementById('message').style.display = 'none';
-        }, 2000);  // Message will disappear after 3000 milliseconds (3 seconds)
-    </script>
+        <h2>Add a Recipe:</h2>
+        <form action="/add_recipe" method="post">
+            <label for="ingredients">Ingredients (separated by one space, e.g., "egg rice"):</label>
+            <input type="text" name="ingredients" id="ingredients" required>
+            <label for="recipe_name">Recipe Name: (e.g. "Egg Fried Rice")</label>
+            <input type="text" name="recipe_name" id="recipe_name" required>
+            <button type="submit">Add Recipe</button>
+        </form>
+    </div>
 </body>
 </html>
