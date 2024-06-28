@@ -1,4 +1,4 @@
-# Recipe Generator Application
+# Recipe Vault
 
 ## Description
 
