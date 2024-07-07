@@ -1,5 +1,7 @@
 # Recipe Vault
 
+![images](https://github.com/georgecuiX/RecipeVault/assets/89486336/579da780-b77b-4fe2-bc11-b415d20ea24d)
+
 ## Description
 
 This Flask-based web application allows users to manage and search for recipes based on ingredients. It provides a simple and intuitive interface for adding, viewing, and deleting recipes. The application is designed to make recipe management easy and efficient, ideal for personal or small-scale culinary projects.
